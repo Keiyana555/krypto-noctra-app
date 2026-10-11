@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Krypto Noctra Bot</title><script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+html,body{margin:0;height:100%;background:#000;color:#f3e3b0;font-family:-apple-system,Segoe UI,Roboto,sans-serif}
+.screen{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 20px calc(28px + env(safe-area-inset-bottom));box-sizing:border-box}
+.screen.on{display:flex}
+#home{background:#000 url(logo.jpg) center 38%/min(100vw,620px) no-repeat}
+#menu,.page{background:#000 url(logo.jpg) center top/0 0 no-repeat;justify-content:flex-start;padding-top:calc(20px + env(safe-area-inset-top))}
+h1{font-size:18px;letter-spacing:.14em;margin:6px 0 14px;color:#d4a83c}
+.btn{display:block;width:100%;max-width:420px;box-sizing:border-box;margin:7px 0;padding:15px;border:1px solid #d4a83c;border-radius:14px;background:linear-gradient(#2a1a10,#120a06);color:#f6dc8c;font-size:17px;font-weight:600;letter-spacing:.08em;text-align:center}
+.btn.red{border-color:#c8341e;background:linear-gradient(#7a1a10,#3a0a06);color:#ffe7b0}
+.txt{max-width:460px;white-space:pre-wrap;line-height:1.45;font-size:15.5px;background:#120a06;border:1px solid #5a3a1a;border-radius:14px;padding:16px;margin:6px 0 12px}
+.note{font-size:12px;opacity:.65;margin-top:8px;text-align:center}
+</style></head><body>
+<div id="home" class="screen on"><button class="btn red" onclick="show('menu')">START</button></div>
+<div id="menu" class="screen"><h1>KRYPTO NOCTRA BOT</h1>
+<button class="btn" onclick="show('p_plans')">PLANS</button><button class="btn" onclick="show('p_mode')">DEMO / LIVE</button><button class="btn" onclick="show('p_size')">SIZE</button><button class="btn" onclick="show('p_alerts')">ALERTS</button><button class="btn" onclick="show('p_help')">HELP</button><button class="btn" onclick="show('home')">HOME</button>
+<div class="note">BloFin DEMO only. Live: locked. Orders: OFF.</div></div>
+<div id="p_plans" class="screen page"><h1>PLANS</h1><div class="txt">KRYPTO NOCTRA BOT PLANS (your statements; nothing below is built or switched on)
+1. BloFin DEMO only until you say otherwise in writing.
+2. Position size: 5% of the balance (statement, not built).
+3. Open-risk and daily caps: same tiers as the demo bot.
+4. Every order needs your own Telegram tap.
+5. Live: locked. Orders: OFF. Markets: not chosen yet.
+6. Sizes will be set from this chat, and only you can change them.</div><button class="btn" onclick="show('menu')">BACK</button></div><div id="p_mode" class="screen page"><h1>DEMO / LIVE</h1><div class="txt">DEMO / LIVE
+BloFin DEMO: read-only.
+BloFin LIVE: locked. Not connected. It needs your explicit written enable first.
+Orders: OFF.
+Login status: send /mode to the bot to see it.</div><button class="btn" onclick="show('menu')">BACK</button></div><div id="p_size" class="screen page"><h1>SIZE</h1><div class="txt">SIZE
+Plan (your statement, not built): 5% of the balance as the position size.
+Nothing here changes a size yet. Size controls from this chat come later and only you will be able to use them.
+The bot never raises a size by itself.</div><button class="btn" onclick="show('menu')">BACK</button></div><div id="p_alerts" class="screen page"><h1>ALERTS</h1><div class="txt">ALERTS
+No crypto alerts are built yet. Markets and the entry method for crypto have not been chosen.
+When they are, alerts will appear here first, and nothing will trade without your tap.</div><button class="btn" onclick="show('menu')">BACK</button></div><div id="p_help" class="screen page"><h1>HELP</h1><div class="txt">HELP
+/start opens the logo screen. Tap START to enter.
+/status, /plans, /mode, /size, /alerts show those screens.
+This bot is separate from the OMNI bot, uses its own token, and places no orders.</div><button class="btn" onclick="show('menu')">BACK</button></div>
+<script>
+var tg=window.Telegram&&window.Telegram.WebApp;
+try{if(tg){tg.ready();tg.expand();try{tg.requestFullscreen&&tg.requestFullscreen();}catch(e){}tg.setBackgroundColor&&tg.setBackgroundColor('#000000');tg.setHeaderColor&&tg.setHeaderColor('#000000');}}catch(e){}
+function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');window.scrollTo(0,0);}
+</script></body></html>
